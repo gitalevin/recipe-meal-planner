@@ -1,0 +1,10 @@
+@pantry_items.map do |pantry_item|
+  {
+    id: pantry_item.id,
+    ingredient: pantry_item.ingredient,
+    user_name: pantry_item.user.name,
+    amount: pantry_item.amount,
+    created_at: pantry_item.created_at,
+    updated_at: pantry_item.updated_at,
+  }
+end
