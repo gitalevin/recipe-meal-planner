@@ -1,0 +1,55 @@
+### Ingredients Index
+GET http://localhost:3000/ingredients.json
+
+### Ingredients create
+POST http://localhost:3000/ingredients.json
+Content-Type: application/json
+
+{
+  "name": "",
+  "image_url": ""
+}
+
+### PantryItems Index
+GET http://localhost:3000/pantry_items.json
+
+### PantryItems create
+POST http://localhost:3000/pantry_items.json
+Content-Type: application/json
+
+{
+  "ingredient_id": "",
+  "user_id": "",
+  "amount": ""
+}
+
+### Users create (signup)
+POST http://localhost:3000/users.json
+Content-Type: application/json
+
+{
+  "name": "Test name",
+  "email": "test1@test.com",
+  "password": "password",
+  "password_confirmation": "password"
+}
+
+### Sessions create (login)
+POST http://localhost:3000/sessions.json
+Content-Type: application/json
+
+{
+  "email": "test@test.com",
+  "password": "password"
+}
+
+# ### Photos create
+# POST http://localhost:3000/photos.json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjozLCJleHAiOjE2Mjk5OTI4NjR9.G2ExsrDYn3oE0vJkvm4T6Po2GbNpH5cqTEaVPVuK_MA
+# Content-Type: application/json
+
+# {
+#   "name": "Test1 name",
+#   "width": 640,
+#   "height": 480
+# }

@@ -1,0 +1,33 @@
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
+#   Character.create(name: "Luke", movie: movies.first)
+User.create!(name: "Gita", email: "gita@test.com", password: "password", image_url: "https://webstockreview.net/explore/chef-clipart-lady-chef/")
+User.create!(name: "Rivki", email: "rivki@test.com", password: "password", image_url: "https://media.istockphoto.com/id/1142759830/vector/chef-girl-is-cooking-in-kitchen.jpg?b=1&s=612x612&w=0&k=20&c=ZJcaRfDiENpRH1dbQPISNfBpe5Q1lOaWIRtv1bQy85U=")
+Ingredient.create!(name: "water", image_url: "https://i.guim.co.uk/img/media/eda873838f940582d1210dcf51900efad3fa8c9b/0_469_7360_4417/master/7360.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=4136d0378a9d158831c65d13dcc16389")
+Ingredient.create!(name: "eggs", image_url: "https://img.taste.com.au/F0W1xU4i/taste/2018/02/cls0318eggss_eggs-135792-1.jpg")
+Ingredient.create!(name: "milk", image_url: "https://images.immediate.co.uk/production/volatile/sites/30/2020/02/Glass-and-bottle-of-milk-fe0997a.jpg")
+Ingredient.create!(name: "butter", image_url: "https://cdn.britannica.com/27/122027-050-EAA86783/Butter.jpg")
+Ingredient.create!(name: "oil", image_url: "https://cdn-prod.medicalnewstoday.com/content/images/articles/321/321246/olive-oil-in-a-bottle-which-may-be-used-on-the-face.jpg")
+Ingredient.create!(name: "salt", image_url: "https://www.rd.com/wp-content/uploads/2019/05/salt-shaker-scaled.jpg")
+Ingredient.create!(name: "pepper", image_url: "https://www.seriouseats.com/thmb/SGFpA9lEb8s2DhwCdbk4gIv2WzM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2019__03__20190312-peppercorns-vicky-wasik-1-2-1500x1125-93e04f26fd0d4558834124153d80ff18.jpg")
+Ingredient.create!(name: "sugar", image_url: "https://www.visitcompletecare.com/wp-content/uploads/2020/11/shutterstock_1564269901-scaled.jpg")
+PantryItem.create!(ingredient_id: 1, user_id: 1, amount: "5")
+PantryItem.create!(ingredient_id: 2, user_id: 1, amount: "5")
+PantryItem.create!(ingredient_id: 3, user_id: 1, amount: "5")
+PantryItem.create!(ingredient_id: 4, user_id: 1, amount: "5")
+PantryItem.create!(ingredient_id: 5, user_id: 1, amount: "5")
+PantryItem.create!(ingredient_id: 6, user_id: 1, amount: "5")
+PantryItem.create!(ingredient_id: 7, user_id: 1, amount: "5")
+PantryItem.create!(ingredient_id: 8, user_id: 1, amount: "5")
+PantryItem.create!(ingredient_id: 1, user_id: 2, amount: "5")
+PantryItem.create!(ingredient_id: 2, user_id: 2, amount: "5")
+PantryItem.create!(ingredient_id: 3, user_id: 2, amount: "5")
+PantryItem.create!(ingredient_id: 4, user_id: 2, amount: "5")
+PantryItem.create!(ingredient_id: 5, user_id: 2, amount: "5")
+PantryItem.create!(ingredient_id: 6, user_id: 2, amount: "5")
+PantryItem.create!(ingredient_id: 7, user_id: 2, amount: "5")
+PantryItem.create!(ingredient_id: 8, user_id: 2, amount: "5")
