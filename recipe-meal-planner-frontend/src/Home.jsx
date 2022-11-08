@@ -4,7 +4,9 @@ import { Signup } from "./Signup";
 import { Login } from "./Login";
 import { LogoutLink } from "./LogoutLink";
 import { IngredientsIndex } from "./IngredientsIndex";
+import { IngredientsNew } from "./IngredientsNew";
 import { PantryItemsIndex } from "./PantryItemsIndex";
+import { PantryItemsNew } from "./PantryItemsNew";
 
 export function Home() {
   const [ingredients, setIngredients] = useState([]);
@@ -19,7 +21,14 @@ export function Home() {
 
   useEffect(handleIndexIngredients, []);
 
-  const [pantryItems, setpantryItems] = useState([]);
+  const handleCreateIngredient = (params, successCallback) => {
+    console.log("handleCreateIngredient", params);
+    axios.post("http://localhost:3000/ingredients.json", params).then((response) => {
+      setIngredients([...ingredients, response.data]);
+    });
+  };
+
+  const [pantryItems, setPantryItems] = useState([]);
 
   const handleIndexPantryItems = () => {
     console.log("handleIndexPantryItems");
@@ -29,12 +38,23 @@ export function Home() {
     });
   };
 
+  const handleCreatePantryItem = (params, successCallback) => {
+    console.log("handleCreatePantryItem", params);
+    axios.post("http://localhost:3000/pantry_items.json", params).then((response) => {
+      setPantryItems([...pantryItems, response.data]);
+    });
+  };
+
+  useEffect(handleIndexPantryItems, []);
+
   return (
     <div>
       <Signup />
       <Login />
       <LogoutLink />
+      <IngredientsNew onCreateIngredient={handleCreateIngredient} />
       <IngredientsIndex ingredients={ingredients} />
+      <PantryItemsNew onCreatePantryItem={handleCreatePantryItem} />
       <PantryItemsIndex pantryItems={pantryItems} />
     </div>
   );
