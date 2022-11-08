@@ -48,7 +48,7 @@ export function Home() {
   useEffect(handleIndexPantryItems, []);
 
   return (
-    <div>
+    <div className="container">
       <Signup />
       <Login />
       <LogoutLink />
