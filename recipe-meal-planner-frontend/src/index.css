@@ -1,3 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
 html {
   scroll-behavior: smooth;
+}
+#root {
+  font-family: Futura;
+  background-image: url('https://media.istockphoto.com/id/1162787549/vector/cooking-vector-seamless-pattern-hand-drawn-doodle-food-and-kitchen-utensils.jpg?s=612x612&w=0&k=20&c=FCu3qPDBHosBcm1imtzOFXFmNzoYXyyV4DQCSKbYw7Q=');
+}
+
+.card img {
+  height: 300px;
+  object-fit: cover;
+}
+
+.navbar-brand {
+  font-family: 'Creepster', cursive;
+  font-size: 50px !important;
 }

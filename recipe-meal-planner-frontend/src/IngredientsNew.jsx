@@ -10,12 +10,14 @@ export function IngredientsNew(props) {
       <h1>New Ingredient</h1>
       <form onSumbit={handleSubmit}>
         <div>
-          Name: <input name="name" type="text" />
+          Name: <input className="form-control" name="name" type="text" />
         </div>
         <div>
-          Image_url: <input name="image_url" type="text" />
+          Image_url: <input className="form-control" name="image_url" type="text" />
         </div>
-        <button type="submit">Create Ingredient</button>
+        <button className="btn btn-primary mt-2" type="submit">
+          Create Ingredient
+        </button>
       </form>
     </div>
   );

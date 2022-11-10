@@ -14,7 +14,7 @@ export function Home() {
   const handleIndexIngredients = () => {
     console.log("handleIndexIngredients");
     axios.get("http://localhost:3000/ingredients.json").then((response) => {
-      console.log(response.data);
+      console.log(response);
       setIngredients(response.data);
     });
   };

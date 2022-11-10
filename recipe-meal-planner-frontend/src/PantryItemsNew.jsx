@@ -10,15 +10,17 @@ export function PantryItemsNew(props) {
       <h1>New Pantry Item</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          Ingredient id: <input name="ingredient_id" type="number" />
+          Ingredient id: <input className="form-control" name="ingredient_id" type="number" />
         </div>
         <div>
-          User id: <input name="user_id" type="number" />
+          User id: <input className="form-control" name="user_id" type="number" />
         </div>
         <div>
-          Amount: <input name="amount" type="number" />
+          Amount: <input className="form-control" name="amount" type="number" />
         </div>
-        <button type="submit">Create pantry item</button>
+        <button className="btn btn-primary mt-3" type="submit">
+          Create pantry item
+        </button>
       </form>
     </div>
   );

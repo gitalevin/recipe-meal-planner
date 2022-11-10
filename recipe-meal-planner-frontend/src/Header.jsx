@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 export function Header() {
   return (
     <header>
-      <nav className="navbar navbar-expand-lg bg-light">
+      <nav className="navbar navbar-dark navbar-expand-lg bg-dark">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
-            Navbar
+            On My Plate
           </a>
           <button
             className="navbar-toggler"
@@ -21,7 +21,7 @@ export function Header() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <a className="nav-link active" aria-current="page" href="/">
                   Home
                 </a>
               </li>
@@ -43,6 +43,11 @@ export function Header() {
               <li className="nav-item">
                 <a className="nav-link" href="#pantryItems-new">
                   New Pantry Item
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="/signup">
+                  Signup
                 </a>
               </li>
             </ul>
