@@ -4,6 +4,8 @@ import { Header } from "./Header";
 import { Home } from "./Home";
 import { Signup } from "./Signup";
 import { Footer } from "./Footer";
+import { RecipesSearch } from "./RecipesSearch";
+import { RecipesShow } from "./RecipesShow";
 
 function App() {
   return (
@@ -13,7 +15,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/recipes_search" element={<RecipesSearch />} />
           <Route path="/about" element={<About />} />
+          <Route path="/recipes_show/:id" element={<RecipesShow />} />
         </Routes>
       </div>
       <Footer />

@@ -11,6 +11,8 @@ import { RecipesSearch } from "./RecipesSearch";
 
 export function Home() {
   const [ingredients, setIngredients] = useState([]);
+  const [isRecipesShowVisible, setIsRecipesShowVisible] = useState(false);
+  const [currentRecipe, setCurrentRecipe] = useState({});
 
   const handleIndexIngredients = () => {
     console.log("handleIndexIngredients");
@@ -46,6 +48,17 @@ export function Home() {
     });
   };
 
+  const handleShowRecipe = (recipe) => {
+    console.log("handleShowRecipe", recipe);
+    setIsRecipesShowVisible(true);
+    setCurrentRecipe(recipe);
+  };
+
+  const handleClose = () => {
+    console.log("handleClose");
+    setIsRecipesShowVisible(false);
+  };
+
   useEffect(handleIndexPantryItems, []);
 
   return (
@@ -57,7 +70,8 @@ export function Home() {
       <IngredientsIndex ingredients={ingredients} />
       <PantryItemsNew onCreatePantryItem={handleCreatePantryItem} />
       <PantryItemsIndex pantryItems={pantryItems} />
-      <RecipesSearch />
+      <RecipesSearch onShowRecipe={handleShowRecipe} />
+      <RecipesShow />
     </div>
   );
 }
