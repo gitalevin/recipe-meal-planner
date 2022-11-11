@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   post "/pantry_items" => "pantry_items#create"
 
   get "/search_recipes" => "search_recipes#index"
+
+  get "/recipe_instructions" => "search_recipes#instructions"
 end

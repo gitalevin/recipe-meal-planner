@@ -1,14 +1,13 @@
-class SearchRecipesController < import axios from "axios";
+class SearchRecipesController < ApplicationController
+  def index
+    response = HTTP.headers("x-api-key" => "#{Rails.application.credentials.spoonacular_api_key}").get("https://api.spoonacular.com/recipes/findByIngredients?ingredients=#{params[:ingredients]}")
+    data = response.parse
+    render json: data
+  end
 
-  const options = {
-    method: 'GET',
-    url: 'https://tasty.p.rapidapi.com/recipes/auto-complete',
-    params: {prefix: 'chicken soup'},
-    headers: {'X-RapidAPI-Key': 'SIGN-UP-FOR-KEY', 'X-RapidAPI-Host': 'tasty.p.rapidapi.com'}
-  };
-  
-  axios.request(options).then(function (response) {
-    console.log(response.data);
-  }).catch(function (error) {
-    console.error(error);
-  });
+  def instructions
+    response = HTTP.headers("x-api-key" => "#{Rails.application.credentials.spoonacular_api_key}").get("https://api.spoonacular.com/recipes/#{params[:id]}/analyzedInstructions")
+    data = response.parse
+    render json: data
+  end
+end

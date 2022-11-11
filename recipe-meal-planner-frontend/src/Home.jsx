@@ -7,6 +7,7 @@ import { IngredientsIndex } from "./IngredientsIndex";
 import { IngredientsNew } from "./IngredientsNew";
 import { PantryItemsIndex } from "./PantryItemsIndex";
 import { PantryItemsNew } from "./PantryItemsNew";
+import { RecipesSearch } from "./RecipesSearch";
 
 export function Home() {
   const [ingredients, setIngredients] = useState([]);
@@ -56,6 +57,7 @@ export function Home() {
       <IngredientsIndex ingredients={ingredients} />
       <PantryItemsNew onCreatePantryItem={handleCreatePantryItem} />
       <PantryItemsIndex pantryItems={pantryItems} />
+      <RecipesSearch />
     </div>
   );
 }

@@ -54,8 +54,8 @@ Content-Type: application/json
 #   "height": 480
 # }
 
-### TASTY API
-GET https://api.spoonacular.com/recipes/findByIngredients?ingredients=apples,cinnamon
-Content-Type: application/json
-X-API-KEY:
+### Recipe search
+GET http://localhost:3000/search_recipes?ingredients=apples,cinnamon
 
+### Recipe instructions
+GET http://localhost:3000/recipe_instructions?id=660261
