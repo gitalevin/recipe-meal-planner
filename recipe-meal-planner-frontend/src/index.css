@@ -6,7 +6,9 @@ html {
 #root {
   min-height: 100vh;
   font-family: Futura;
-  background-image: url('https://media.istockphoto.com/id/1162787549/vector/cooking-vector-seamless-pattern-hand-drawn-doodle-food-and-kitchen-utensils.jpg?s=612x612&w=0&k=20&c=FCu3qPDBHosBcm1imtzOFXFmNzoYXyyV4DQCSKbYw7Q=');
+  background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
+                  url("https://media.istockphoto.com/id/1162787549/vector/cooking-vector-seamless-pattern-hand-drawn-doodle-food-and-kitchen-utensils.jpg?s=612x612&w=0&k=20&c=FCu3qPDBHosBcm1imtzOFXFmNzoYXyyV4DQCSKbYw7Q=");
+  /* background-image: url('https://media.istockphoto.com/id/1162787549/vector/cooking-vector-seamless-pattern-hand-drawn-doodle-food-and-kitchen-utensils.jpg?s=612x612&w=0&k=20&c=FCu3qPDBHosBcm1imtzOFXFmNzoYXyyV4DQCSKbYw7Q='); */
 }
 
 .card img {
@@ -17,4 +19,39 @@ html {
 .navbar-brand {
   font-family: 'Creepster', cursive;
   font-size: 50px !important;
+}
+
+.frameContent{
+  position:relative;
+  border-left: #FFFFFF 20px solid;
+  border-right: #FFFFFF 20px solid;
+  border-top: #FFFFFF 15px solid;
+  padding: 25px 10px 10px 10px;
+  height:100%;
+  box-shadow: 2px 2px 2px;
+}
+
+div.transparentBox {
+  width: 500px;
+  height: 350px;
+  display: block;
+  position: fixed;
+  top: 30%;
+  left: 30%;
+}
+
+.frameContent::after{
+ content: "";
+ background: url(/image/and_02.jpg);
+ background-size:cover;
+ /* background-color: rgba(211, 211, 211, 0.3); */
+ background-color: #ffffff;
+ filter: alpha(Opacity=90);
+ opacity: 0.9;
+ top: 0;
+ left: 0;
+ bottom: 0;
+ right: 0;
+ position: absolute;
+ z-index: -1;
 }

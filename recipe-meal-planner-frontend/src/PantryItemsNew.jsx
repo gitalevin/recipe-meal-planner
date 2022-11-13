@@ -1,4 +1,18 @@
+import axios from "axios";
+import { useState, useEffect } from "react";
+
 export function PantryItemsNew(props) {
+  const [ingredients, setIngredients] = useState([]);
+  const handleIndexIngredients = () => {
+    console.log("Going to get all ingredients...");
+    axios.get("http://localhost:3000/ingredients.json").then((response) => {
+      console.log(response);
+      setIngredients(response.data);
+    });
+  };
+
+  useEffect(handleIndexIngredients, []);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
@@ -10,10 +24,14 @@ export function PantryItemsNew(props) {
       <h1>New Pantry Item</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          Ingredient id: <input className="form-control" name="ingredient_id" type="number" />
-        </div>
-        <div>
-          User id: <input className="form-control" name="user_id" type="number" />
+          Ingredient:{" "}
+          <select name="ingredient_id" className="form-control">
+            {ingredients.map((ingredient) => (
+              <option value={ingredient.id} key={ingredient.id}>
+                {ingredient.name}
+              </option>
+            ))}
+          </select>
         </div>
         <div>
           Amount: <input className="form-control" name="amount" type="number" />

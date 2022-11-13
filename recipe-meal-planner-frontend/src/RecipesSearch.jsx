@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export function RecipesSearch() {
@@ -13,12 +13,30 @@ export function RecipesSearch() {
     });
   };
 
+  const [pantryItems, setPantryItems] = useState([]);
+  const handlePantryItems = () => {
+    console.log("Going to get all pantry items...");
+    axios.get("http://localhost:3000/pantry_items.json").then((response) => {
+      console.log(response);
+      setPantryItems(response.data);
+    });
+  };
+  const handleClick = (pantryItem) => {
+    console.log(pantryItem);
+    document.getElementById("recipes-search").value += pantryItem.ingredient.name + ",";
+  };
+
+  useEffect(handlePantryItems, []);
+
   return (
     <div>
       <h1>Search Recipes</h1>
+      {pantryItems.map((pantryItem) => (
+        <button onClick={() => handleClick(pantryItem)}>{pantryItem.ingredient.name}</button>
+      ))}
       <form onSubmit={handleSubmit}>
         <div>
-          <input name="name" type="text" />
+          <input name="name" id="recipes-search" type="text" />
         </div>
         <button className="btn btn-primary mt-2" type="submit">
           Search

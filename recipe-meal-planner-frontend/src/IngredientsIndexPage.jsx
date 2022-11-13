@@ -1,20 +1,32 @@
-import { useState } from "react";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
-export function IngredientsIndex(props) {
+export function IngredientsIndexPage() {
   const [searchFilter, setSearchFilter] = useState("");
+  const [ingredients, setIngredients] = useState([]);
+
+  const handleIndexIngredients = () => {
+    console.log("Going to get all ingredients...");
+    axios.get("http://localhost:3000/ingredients.json").then((response) => {
+      console.log(response);
+      setIngredients(response.data);
+    });
+  };
+
+  useEffect(handleIndexIngredients, []);
 
   return (
-    <div id="ingredients-index">
-      <h1>All Ingredients</h1>
+    <div id="ingredientss-index">
+      <h1>All ingredients</h1>
       Search filter:{" "}
-      <input value={searchFilter} onChange={(event) => setSearchFilter(event.target.value)} type="text" list="titles" />
-      <datalist id="titles">
-        {props.ingredients.map((ingredient) => (
+      <input value={searchFilter} onChange={(event) => setSearchFilter(event.target.value)} type="text" list="names" />
+      <datalist id="names">
+        {ingredients.map((ingredient) => (
           <option key={ingredient.id}>{ingredient.name}</option>
         ))}
       </datalist>
       <div className="row">
-        {props.ingredients
+        {ingredients
           .filter((ingredient) => ingredient.name.toLowerCase().includes(searchFilter.toLowerCase()))
           .map((ingredient) => (
             <div className="col-md-3 mb-4" key={ingredient.id}>
@@ -22,9 +34,6 @@ export function IngredientsIndex(props) {
                 <img src={ingredient.image_url} className="card-img-top" alt="..." />
                 <div className="card-body">
                   <h5 className="card-name">{ingredient.name}</h5>
-                  <a className="btn btn-primary" href={`/recipes/${ingredient.id}`}>
-                    Go to show page
-                  </a>
                 </div>
               </div>
             </div>

@@ -1,13 +1,11 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Signup } from "./Signup";
-import { Login } from "./Login";
-import { LogoutLink } from "./LogoutLink";
 import { IngredientsIndex } from "./IngredientsIndex";
 import { IngredientsNew } from "./IngredientsNew";
 import { PantryItemsIndex } from "./PantryItemsIndex";
 import { PantryItemsNew } from "./PantryItemsNew";
 import { RecipesSearch } from "./RecipesSearch";
+import { RecipesShow } from "./RecipesShow";
 
 export function Home() {
   const [ingredients, setIngredients] = useState([]);
@@ -36,7 +34,7 @@ export function Home() {
   const handleIndexPantryItems = () => {
     console.log("handleIndexPantryItems");
     axios.get("http://localhost:3000/pantry_items.json").then((response) => {
-      console.log(response.data);
+      console.log("pantry items", response.data);
       setPantryItems(response.data);
     });
   };
@@ -63,9 +61,6 @@ export function Home() {
 
   return (
     <div className="container">
-      <Signup />
-      <Login />
-      <LogoutLink />
       <IngredientsNew onCreateIngredient={handleCreateIngredient} />
       <IngredientsIndex ingredients={ingredients} />
       <PantryItemsNew onCreatePantryItem={handleCreatePantryItem} />
