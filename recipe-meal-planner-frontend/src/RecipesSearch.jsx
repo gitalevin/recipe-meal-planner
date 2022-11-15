@@ -1,9 +1,13 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Modal } from "./Modal";
 
 export function RecipesSearch() {
   const [recipes, setRecipes] = useState([]);
+  const [isRecipesShowVisible, setIsRecipesShowVisible] = useState(false);
+  const [currentRecipe, setCurrentRecipe] = useState({ steps: [{}] });
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
@@ -27,6 +31,23 @@ export function RecipesSearch() {
   };
 
   useEffect(handlePantryItems, []);
+
+  const handleShowRecipe = (recipe) => {
+    console.log("handleShowRecipe", recipe);
+    axios.get(`http://localhost:3000/recipe_instructions?id=${recipe.id}`).then((response) => {
+      console.log(response.data[0].steps);
+      setIsRecipesShowVisible(true);
+      setCurrentRecipe({
+        title: recipe.title,
+        steps: response.data[0].steps,
+      });
+    });
+  };
+
+  const handleClose = () => {
+    console.log("handleClose");
+    setIsRecipesShowVisible(false);
+  };
 
   return (
     <div>
@@ -56,13 +77,21 @@ export function RecipesSearch() {
                   ))}
                 </ul>
               </div>
-              <a className="btn btn-primary" href="/recipes_show/:id">
+              <button className="btn btn-primary" onClick={() => handleShowRecipe(recipe)}>
                 More Info
-              </a>
+              </button>
             </div>
           </div>
         ))}
       </div>
+      <Modal show={isRecipesShowVisible} onClose={handleClose}>
+        <h1>{currentRecipe.title}</h1>
+        <ul>
+          {currentRecipe.steps.map((step) => (
+            <li>{step.step}</li>
+          ))}
+        </ul>
+      </Modal>
     </div>
   );
 }

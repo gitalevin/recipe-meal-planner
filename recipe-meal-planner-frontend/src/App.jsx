@@ -12,13 +12,22 @@ import { IngredientsIndexPage } from "./IngredientsIndexPage";
 import { IngredientsNew } from "./IngredientsNew";
 import { PantryItemsNew } from "./PantryItemsNew";
 import { PantryItemsIndexPage } from "./PantryItemsIndexPage";
+import React, { useState } from "react";
+import Heart from "react-heart";
 
 function App() {
+  const [active, setActive] = useState(false);
   const handleCreatePantryItem = (params, successCallback) => {
     console.log("handleCreatePantryItem", params);
     axios.post("http://localhost:3000/pantry_items.json", params).then((response) => {
       window.location.href = "/";
     });
+
+    return (
+      <div style={{ width: "2rem" }}>
+        <Heart isActive={active} onClick={() => setActive(!active)} />
+      </div>
+    );
   };
 
   return (
