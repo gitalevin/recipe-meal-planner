@@ -16,17 +16,31 @@ ruby "3.1.2"
 
 "rails", "~> 7.0.4"
 
-## Installation
+## Backend Installation
 
 ```bash
 bundle install
 rails db:create db:migrate db:seed
 ```
 
-## Usage
+## Backend Usage
 
 ```bash
 rails server
+```
+
+## Frontend Installation
+
+The React Node project frontend is located in the `recipe-meal-planner-frontend` folder.
+
+```bash
+npm install
+```
+
+## Frontend Usage
+
+```bash
+npm run dev
 ```
 
 ## Roadmap
