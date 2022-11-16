@@ -1,24 +1,34 @@
-# README
+![screenshot](screenshot.png)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# On My Plate
 
-Things you may want to cover:
+Welcome to On My Plate, a ruby on rails API app that uses a public food API, [Spoonacular](https://spoonacular.com/), to meal plan recipes.
 
-* Ruby version
+Recently, I have been feeling like I have a lot on my plate and not enought of it is food. In my desperate attempt to learn how to cook, I decided to create an app that can help me keep track of what I have in my pantry and find recipes based on those ingredients! This way, I have a little less on my plate and more in my stomach!
 
-* System dependencies
+With this app, users can signup for an account and see a list of ingredients in their pantry. Users can add ingredients to the pantry and search recipes using the ingredients they already have.
 
-* Configuration
+Using `ruby "3.1.2"` and a rails gem `"rails", "~> 7.0.4"` for the backend and react for the front end, I was able to implement the recipe API.
 
-* Database creation
+## Ruby version
 
-* Database initialization
+ruby "3.1.2"
 
-* How to run the test suite
+"rails", "~> 7.0.4"
 
-* Services (job queues, cache servers, search engines, etc.)
+## Installation
 
-* Deployment instructions
+```bash
+bundle install
+rails db:create db:migrate db:seed
+```
 
-* ...
+## Usage
+
+```bash
+rails server
+```
+
+## Roadmap
+
+For the future, the next step is to add a favorite button that alows the user to favorite recipes and therby save them. Also, I would like to implement a calendar where the user is able to plan out recipes. The end goal is to try to turn this meal planner into a mobile app.
